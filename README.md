@@ -1,1 +1,2 @@
-# com.mgravish.tasklist
+# AE Task List
+Working on a simple task list panel for After Effects to learn more about creating extensions. This will probably not bein working order for a long while...
