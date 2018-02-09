@@ -5,13 +5,15 @@ function enterHandler(e){
   var keycode = e.charCode || e.keyCode;
   if (keycode  == 13) { //Enter key's
     $(".task-list").append(newItem);
-    //alert("test");
     e.preventDefault();
+    e.target.parentElement.nextElementSibling.childNodes[1].focus();
   }
   if(keycode == 38){
+      e.target.parentElement.previousElementSibling.childNodes[1].focus();
       e.preventDefault();
   }
   if(keycode == 40){
+      e.target.parentElement.nextElementSibling.childNodes[1].focus();
       e.preventDefault();
   }
 }
