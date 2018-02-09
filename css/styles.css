@@ -13,15 +13,34 @@
     height:100vh; 
 }
 
-.content-inside {
+.task-list {
   padding: 20px;
   padding-bottom: 50px;
+}
+
+.task-line{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.task {
+  color:white;
+  background:none;
+  border:none;
+  padding-top:6px;
+  padding-bottom:6px;
+  /*float:right;*/
+}
+
+.check-box{
+  float:left;
+    padding-right:3px;
 }
 
 .footer {
   height:35px;
   margin-top: -35px;
-    margin-left:-8px;
+  margin-left:-8px;
 }
 
 footer {

@@ -5,27 +5,35 @@
 
     <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
     <link  id="hostStyle" rel="stylesheet" href="css/styles.css"/>
-
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/tasks.js"></script>
     <title></title>
     </head>
 
     <body class="hostElt">
         <div id="content">        
-
-            <div class="content-inside">                
-                <!-- <button id="btn_test" class="topcoat-button--large hostFontSize">Test</button> -->
-            </div>   
+            <form>
+            <div class="task-list">
+                <div class="task-line">
+                    <div class="check-box">
+                        <svg height="28" width="28"><circle cx="14" cy="14" r="10" fill="none" stroke="#979797" stroke-width="3" /></svg>
+                    </div>
+                    <input type="text" class="task" placeholder="Write a task..." onkeydown="enterHandler(event)">
+                </div>
+            </div>
+            </form>
 
         </div>
-        
         <footer class="footer">
             <a href="javascript:history.go(0)">Click to refresh the panel</a>
         </footer>
         
         <script src="js/libs/CSInterface.js"></script>
-        <script src="js/libs/jquery-2.0.2.min.js"></script>
+        
 
-        <script src="js/themeManager.js"></script>
-        <script src="js/main.js"></script>    
+        <!--<script src="js/themeManager.js"></script>
+        <script src="js/main.js"></script>    -->
     </body> 
 </html>
+
+
