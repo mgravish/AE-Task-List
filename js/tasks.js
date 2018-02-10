@@ -1,4 +1,4 @@
-var newItem = '<div class="task-line"><div class="check-box"><svg height="28" width="28"><circle cx="14" cy="14" r="10" stroke="#979797" fill="none" stroke-width="3" /></svg></div><input type="text" class="task" placeholder="Write a task..." onkeydown="keyHandler(event)">';
+var newItem = '<div class="task-line"><div class="check-box"><svg height="28" width="28"><g id="check-box" stroke="none" class="test" stroke-width="1" fill="none" fill-rule="evenodd"><circle cx="14" cy="14" r="10" fill="#979797" fill-opacity="0.1" stroke="#979797" stroke-width="3" onclick="clickHandler(event)"/><polyline id="Path-2" stroke="#FFFFFF" stroke-width="4" points="8 14 13 18 20 10" onclick="clickHandler(event)"/></g></svg></div><input type="text" class="task" placeholder="Write a task..." onkeydown="keyHandler(event)">';
 
 
 function keyHandler(e){
@@ -39,5 +39,17 @@ function keyHandler(e){
                 e.target.parentElement.remove();
             }
         }
+    }
+}
+
+function clickHandler(e){
+    var circ = $(e.target.parentElement).find("circle")[0];
+    if($(circ).css("fill-opacity")==0.1) {
+        $(circ).css({ fill: "#FFD442" });
+        $(circ).css({ fillOpacity: "1.0" });
+    }
+    else {
+        $(circ).css({ fill: "#FFD442" });
+        $(circ).css({ fillOpacity: "0.1" });
     }
 }

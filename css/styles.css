@@ -23,6 +23,10 @@
   padding-bottom: 5px;
 }
 
+svg{
+    cursor: pointer;
+}
+
 .task {
   color:white;
   background:none;
