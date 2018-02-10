@@ -13,6 +13,11 @@
     height:100vh; 
 }
 
+input{
+    font-size:14px;
+    font-family: sans-serif;
+}
+
 .task-list {
   padding: 20px;
   padding-bottom: 50px;
@@ -25,6 +30,16 @@
 
 svg{
     cursor: pointer;
+}
+
+polyline{
+    transform: scale(0);
+    transform-origin: center;
+    transition: all .05s ease-in-out;
+}
+
+circle{
+    transition: all .05s ease-in-out;
 }
 
 .task {
