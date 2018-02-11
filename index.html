@@ -7,6 +7,7 @@
     <link  id="hostStyle" rel="stylesheet" href="css/styles.css"/>
     <script src="js/libs/jquery-3.3.1.min.js"></script>
     <script src="js/tasks.js"></script>
+    <script src="js/settings.js"></script>
     <title></title>
     </head>
 
@@ -23,16 +24,18 @@
                             </g>
                         </svg>
                     </div>
-                    <input type="text" class="task" placeholder="Write a task..." onkeydown="keyHandler(event)">
+                    <input type="text" class="task" placeholder="Write a task..." onkeydown="keyHandler(event)" onkeyup="pushText(event)">
                 </div>
             </div>
             </form>
-
+            <div onclick="setCookie()">Set Cookie Test</div>
+            <br>
+            <div onclick="getCookie()">Get Cookie Test</div>
         </div>
+        
         <footer class="footer">
             <a href="javascript:history.go(0)">Click to refresh the panel</a>
         </footer>
-        
         <script src="js/libs/CSInterface.js"></script>
         
 
