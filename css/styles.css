@@ -1,7 +1,7 @@
 /*Your styles*/
 
  body {
-  height: 100%;
+  /*height: 100%;*/
   margin: 0;
 }
 
@@ -10,12 +10,13 @@
     margin-left:auto;
     vertical-align:middle;
     width:100%;
-    height:100vh; 
+    /*height:100vh; */
 }
 
 input{
     font-size:14px;
     font-family: sans-serif;
+    width:80%;
 }
 
 .task-list {
@@ -26,6 +27,7 @@ input{
 .task-line{
   padding-top: 5px;
   padding-bottom: 5px;
+
 }
 
 svg{

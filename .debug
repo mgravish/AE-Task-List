@@ -18,7 +18,7 @@
             <Host Name="PPRO" Port="8091" />
             
             <!-- AfterEffects -->
-            <Host Name="AEFT" Port="8092" />
+            <Host Name="AEFT" Port="8096" />
             
             <!-- PRELUDE -->
             <Host Name="PRLD" Port="8093" />
