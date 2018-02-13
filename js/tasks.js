@@ -2,17 +2,45 @@ var newItem = '<div class="task-line"><div class="check-box"><svg height="28" wi
 
 var tasks = [];
 
-function pushText(e) {
+function loadTasksFromCookie(){
+    if(cookieExists("tasks")){
+        var cookieData = read_cookie("tasks");
+        var parsed = JSON.parse(cookieData);
+        var tasklist = $("hostElt").find("task-list");
+        for(var i=0;i<parsed.length;i++){
+            if(parsed[i].value==""){ continue; }
+            tasks.push(parsed[i]);
+        }
+        tasks.reverse;
+        for(var j=0;j<tasks.length;j++){
+            $(".task-list").append(newItem);
+            var text = $(".task-list").find("input")[j];
+            text.value=tasks[j].value;
+            if(tasks[j].status=="complete"){
+                var circ=$(".task-list").find("circle")[j];
+                var check=$(".task-list").find("polyline")[j];
+                $(circ).css({ fillOpacity: "1.0" });
+                $(check).css({ transform: "scale(1)" });
+                $(text).css({ color: "#828282" });
+                $(text).css({ textDecoration: "line-through" });
+            }
+        }
+    }
+}
+
+function pushText(e) { // pushText – Runs on every KeyUp to update the array with the latest text. 
     var taskline = e.target.parentElement;
     var tasklist = e.target.parentElement.parentElement;
     var taskarray = Array.prototype.slice.call(tasklist.children);
     var index = taskarray.indexOf( taskline );
     var txt=e.target.value;
     tasks[index]={value: txt, status: "incomplete"};
+    bake_cookie('tasks',getTasks());
     //console.log(tasks[index].value);
 }
 
-function keyHandler(e) {
+// Keyhandler – Runs on every keyDown to handle special keys.
+function keyHandler(e) { 
     var keycode = e.charCode || e.keyCode;
     var taskline = e.target.parentElement;
     var tasklist = e.target.parentElement.parentElement;
@@ -65,7 +93,7 @@ function keyHandler(e) {
     }
 }
 
-function clickHandler(e) {
+function clickHandler(e) { // clickHandler – Runs every time a circle is clicked.
     var circ = $(e.target.parentElement).find("circle")[0];
     var check = $(e.target.parentElement).find("polyline")[0];
     var text = $(e.target.parentElement.parentElement.parentElement.parentElement).find("input")[0];
@@ -77,14 +105,14 @@ function clickHandler(e) {
     //console.log(index);
     
     
-    if($(circ).css("fill-opacity")==0.1) {
+    if($(circ).css("fill-opacity")==0.1) { //If the circle is unfilled
         $(circ).css({ fillOpacity: "1.0" });
         $(check).css({ transform: "scale(1)" });
         $(text).css({ color: "#828282" });
         $(text).css({ textDecoration: "line-through" });
         tasks[index].status="complete";
     }
-    else {
+    else { //If the circle is filled
         $(circ).css({ fillOpacity: "0.1" });
         $(check).css({ transform: "scale(0)" });
         $(text).css({ color: "white" });
@@ -92,4 +120,8 @@ function clickHandler(e) {
         tasks[index].status="incomplete";
     }
     console.log("Toggled task: "+tasks[index].value+". Status: "+tasks[index].status);
+}
+
+function getTasks(){
+    return JSON.stringify(tasks);
 }
