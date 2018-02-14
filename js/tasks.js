@@ -119,6 +119,7 @@ function clickHandler(e) { // clickHandler – Runs every time a circle is click
         $(text).css({ textDecoration: "none" });
         tasks[index].status="incomplete";
     }
+    bake_cookie('tasks',getTasks());
     console.log("Toggled task: "+tasks[index].value+". Status: "+tasks[index].status);
 }
 
