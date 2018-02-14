@@ -1,2 +1,2 @@
 # AE Task List
-Working on a simple task list panel for After Effects to learn more about creating extensions. This will probably not bein working order for a long while...
+A simple task list for After Effects. You can add and delete items, and mark them as complete or incomplete. The list is saved in a persistent cookie and loaded when the panel opens.
